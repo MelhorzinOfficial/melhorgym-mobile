@@ -28,7 +28,7 @@ export interface WorkoutProgressState {
   history: WorkoutSession[];
 }
 
-const STORAGE_KEY = 'meu-treino-progress';
+const STORAGE_KEY = 'melhorgym-progress';
 
 // Helper functions
 const generateSessionId = (): string => {

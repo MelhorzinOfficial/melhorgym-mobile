@@ -10,7 +10,7 @@ Componente de cabeçalho fixo no topo da página.
 
 **Props:**
 
-- `title`: Título do header (padrão: "Meu Treino")
+- `title`: Título do header (padrão: "MelhorGym")
 - `showLogo`: Se deve mostrar o logo (padrão: true)
 - `logoUrl`: URL do logo customizado
 - `fixed`: Se o header deve ter posição fixa (padrão: true)
@@ -165,7 +165,7 @@ layout/
 ```vue
 <template>
   <div class="app-layout">
-    <Header title="Meu Treino" />
+    <Header title="MelhorGym" />
 
     <Page>
       <PageContent title="Dashboard" subtitle="Visão geral dos seus treinos" :divider="true">

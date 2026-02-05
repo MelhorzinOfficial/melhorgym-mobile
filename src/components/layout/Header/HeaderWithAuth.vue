@@ -4,7 +4,7 @@ import { useTheme } from 'src/composables/useTheme';
 import type { HeaderProps } from './interfaces/header.interface';
 
 const _props = withDefaults(defineProps<HeaderProps>(), {
-  title: 'Meu Treino',
+  title: 'MelhorGym',
   showLogo: true,
   fixed: true,
 });
@@ -17,7 +17,7 @@ const { theme, toggleTheme } = useTheme();
   <q-header :elevated="true" class="app-header">
     <q-toolbar>
       <div class="flex items-center gap-2">
-        <img src="~assets/melhorzin-treino-logo.png" alt="Meu Treino" class="h-12 w-12 rounded-lg" />
+        <img src="~assets/melhorzin-treino-logo.png" alt="MelhorGym" class="h-12 w-12 rounded-lg" />
         <q-toolbar-title class="text-lg font-semibold">{{ title }}</q-toolbar-title>
       </div>
 

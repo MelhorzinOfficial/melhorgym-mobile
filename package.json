@@ -1,8 +1,8 @@
 {
-  "name": "meu-treino",
+  "name": "melhorgym",
   "version": "0.0.1",
   "description": "Salve seus treinos",
-  "productName": "MeuTreino",
+  "productName": "MelhorGym",
   "author": "luizpbello <luizpbello2@gmail.com>",
   "type": "module",
   "private": true,

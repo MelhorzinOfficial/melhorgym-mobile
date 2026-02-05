@@ -4,7 +4,7 @@ import { useTheme } from 'src/composables/useTheme';
 import type { HeaderProps } from './interfaces/header.interface';
 
 const props = withDefaults(defineProps<HeaderProps>(), {
-  title: 'Meu Treino',
+  title: 'MelhorGym',
   showLogo: true,
   fixed: true,
 });

@@ -1,4 +1,4 @@
-# MeuTreino (meu-treino)
+# MelhorGym (melhorgym)
 
 Salve seus treinos
 

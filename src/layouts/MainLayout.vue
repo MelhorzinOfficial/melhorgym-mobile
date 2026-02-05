@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <HeaderWithAuth title="Meu Treino" />
+    <HeaderWithAuth title="MelhorGym" />
 
     <q-page-container>
       <router-view v-slot="{ Component, route }">

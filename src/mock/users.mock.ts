@@ -15,7 +15,7 @@ export const mockUsers: UserResponse[] = [
   },
   {
     id: 3,
-    email: 'admin@meutreino.com',
+    email: 'admin@melhorgym.com',
     role: 'admin',
     createdAt: '2023-12-01T08:00:00.000Z',
   },

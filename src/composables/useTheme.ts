@@ -3,7 +3,7 @@ import { useQuasar } from 'quasar';
 
 type Theme = 'light' | 'dark';
 
-const STORAGE_KEY = 'meu-treino-theme';
+const STORAGE_KEY = 'melhorgym-theme';
 
 // Inicializar tema imediatamente
 const getInitialTheme = (): Theme => {

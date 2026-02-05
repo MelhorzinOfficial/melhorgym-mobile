@@ -6,7 +6,7 @@
         <div class="mx-auto mb-6">
           <img
             src="~assets/melhorzin-treino-logo.png"
-            alt="Meu Treino"
+            alt="MelhorGym"
             class="h-40 w-40 mx-auto rounded-2xl"
           />
         </div>

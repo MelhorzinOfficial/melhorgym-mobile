@@ -1,4 +1,4 @@
-package com.meutreino.app;
+package com.melhorgym.app;
 
 import com.getcapacitor.BridgeActivity;
 
