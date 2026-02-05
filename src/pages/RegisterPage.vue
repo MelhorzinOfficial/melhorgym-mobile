@@ -87,7 +87,7 @@
         </form>
 
         <!-- Divider -->
-        <div class="relative">
+        <!-- <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div
               :class="[$q.dark.isActive ? 'border-gray-700' : 'border-gray-300']"
@@ -102,10 +102,10 @@
               Ou continue com
             </span>
           </div>
-        </div>
+        </div> -->
 
         <!-- Google Register Button -->
-        <AppButton variant="outline" :disabled="loading" full-width @click="handleGoogleLogin">
+        <!-- <AppButton variant="outline" :disabled="loading" full-width @click="handleGoogleLogin">
           <svg class="w-5 h-5 -ml-1" viewBox="0 0 24 24">
             <path
               fill="#4285F4"
@@ -125,7 +125,7 @@
             />
           </svg>
           Google
-        </AppButton>
+        </AppButton> -->
 
         <!-- Login Link -->
         <div
@@ -147,7 +147,6 @@ import { ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { useToast } from 'src/composables/useToast';
-import { useAuth } from 'src/composables/useAuth';
 import AppInput from 'src/components/ui/AppInput';
 import AppButton from 'src/components/ui/AppButton';
 import { api } from 'src/boot/axios';
@@ -155,7 +154,6 @@ import { api } from 'src/boot/axios';
 const $q = useQuasar();
 const router = useRouter();
 const toast = useToast();
-const { loginWithGoogle } = useAuth();
 
 // Form fields
 const name = ref('');
@@ -276,7 +274,7 @@ async function handleRegister() {
   }
 }
 
-function handleGoogleLogin() {
-  loginWithGoogle();
-}
+// function handleGoogleLogin() {
+//   loginWithGoogle();
+// }
 </script>
