@@ -82,22 +82,22 @@
         </form>
 
         <!-- Divider -->
-        <div class="relative">
+        <!-- <div class="relative">
           <div class="absolute inset-0 flex items-center">
             <div
               :class="[$q.dark.isActive ? 'border-gray-700' : 'border-gray-300']"
               class="w-full border-t"
             ></div>
           </div>
-          <!-- <div class="relative flex justify-center text-sm">
+          <div class="relative flex justify-center text-sm">
             <span
               :class="[$q.dark.isActive ? 'bg-gray-900 text-gray-400' : 'bg-white text-gray-500']"
               class="px-4"
             >
               Ou continue com
             </span>
-          </div> -->
-        </div>
+          </div>
+        </div> -->
 
         <!-- Google Login Button -->
         <!-- <AppButton
