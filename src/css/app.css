@@ -1,0 +1,42 @@
+/* app global css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sobrescrever as cores do Quasar para usar laranja */
+:root {
+  --q-primary: #ea580c;
+  --q-secondary: #6b7280;
+  --q-accent: #f97316;
+  --q-positive: #22c55e;
+  --q-negative: #ef4444;
+  --q-info: #3b82f6;
+  --q-warning: #f59e0b;
+}
+
+@layer base {
+  /* Deixar o Quasar controlar as cores do body */
+  body.body--light {
+    @apply bg-gray-100 text-gray-900;
+  }
+
+  body.body--dark {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Capacitor Safe Area - Status Bar */
+.q-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Capacitor Safe Area - Bottom Navigation */
+.q-footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Quasar Page styling */
+.q-page {
+  min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px);
+}

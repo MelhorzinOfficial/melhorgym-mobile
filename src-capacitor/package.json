@@ -1,0 +1,13 @@
+{
+  "name": "meu-treino",
+  "version": "0.0.1",
+  "description": "Salve seus treinos",
+  "author": "luizpbello <luizpbello2@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^7.4.5",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  }
+}
