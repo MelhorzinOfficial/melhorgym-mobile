@@ -23,4 +23,9 @@ export interface HeaderProps {
    * Classe CSS adicional
    */
   class?: string;
+
+  /**
+   * Se o header deve ter elevação (sombra)
+   */
+  elevated?: boolean;
 }

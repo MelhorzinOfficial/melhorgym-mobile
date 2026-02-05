@@ -45,4 +45,9 @@ export interface FooterProps {
    * Classe CSS adicional
    */
   class?: string;
+
+  /**
+   *  Se deve aplicar somba
+   */
+  elevated?:boolean;
 }

@@ -7,6 +7,7 @@ const _props = withDefaults(defineProps<HeaderProps>(), {
   title: 'MelhorGym',
   showLogo: true,
   fixed: true,
+  elevated: false
 });
 
 const { user, userName, userAvatar, logout } = useAuth();
@@ -14,7 +15,7 @@ const { theme, toggleTheme } = useTheme();
 </script>
 
 <template>
-  <q-header :elevated="true" class="app-header">
+  <q-header :elevated="_props.elevated" class="app-header shadow-sm">
     <q-toolbar>
       <div class="flex items-center gap-2">
         <img src="~assets/melhorzin-treino-logo.png" alt="MelhorGym" class="h-12 w-12 rounded-lg" />

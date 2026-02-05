@@ -4,6 +4,7 @@ import type { FooterProps, NavigationItem } from './interfaces/footer.interface'
 
 const _props = withDefaults(defineProps<FooterProps>(), {
   fixed: true,
+  elevated: false,
   navigationItems: () => [
     {
       id: 'home',
@@ -31,7 +32,7 @@ const isItemActive = (item: NavigationItem) => {
 </script>
 
 <template>
-  <q-footer elevated class="app-footer">
+  <q-footer :elevated="_props.elevated" class="app-footer">
     <q-tabs dense indicator-color="transparent" class="app-footer-tabs">
       <q-route-tab
         v-for="item in navigationItems"

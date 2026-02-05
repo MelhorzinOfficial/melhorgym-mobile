@@ -4,8 +4,8 @@ import type { PageProps } from './interfaces/page.interface';
 
 const props = withDefaults(defineProps<PageProps>(), {
   padding: 'md',
-  paddingTop: true,
-  paddingBottom: true,
+  paddingTop: false,
+  paddingBottom: false,
   bgColor: 'bg-gray-50 dark:bg-gray-900',
   contained: false,
 });
@@ -45,7 +45,7 @@ const paddingClasses = computed(() => {
 });
 
 const pageClasses = computed(() => {
-  return ['min-h-screen', props.bgColor, paddingClasses.value, props.class]
+  return ['h-full', props.bgColor, paddingClasses.value, props.class]
     .filter(Boolean)
     .join(' ');
 });
