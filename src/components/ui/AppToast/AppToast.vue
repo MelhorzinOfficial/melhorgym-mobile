@@ -1,5 +1,7 @@
 <template>
-  <div class="fixed top-4 right-4 z-[9999] space-y-3 max-w-sm w-full px-4 pointer-events-none">
+  <div
+    class="toast-container fixed right-4 z-[9999] space-y-3 max-w-sm w-full px-4 pointer-events-none"
+  >
     <TransitionGroup name="toast">
       <div
         v-for="toast in toasts"
@@ -135,6 +137,11 @@ function removeToast(id: string) {
 </script>
 
 <style scoped>
+/* Posicionamento com safe area */
+.toast-container {
+  top: var(--toast-top-offset, 16px);
+}
+
 /* Animações de entrada e saída */
 .toast-enter-active {
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);

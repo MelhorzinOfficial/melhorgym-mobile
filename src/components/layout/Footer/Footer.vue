@@ -54,7 +54,7 @@ const isItemActive = (item: NavigationItem) => {
 <style scoped>
 .app-footer {
   background: #1f2937;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: var(--footer-bottom-padding, 0px);
 }
 
 .body--light .app-footer {

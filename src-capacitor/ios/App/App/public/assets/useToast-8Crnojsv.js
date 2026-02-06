@@ -1,0 +1,1 @@
+import{ab as n}from"./index-uMrKI2FR.js";function s(){const t=n();return{success:(r,e)=>t.success(r,e),error:(r,e)=>t.error(r,e),warning:(r,e)=>t.warning(r,e),info:(r,e)=>t.info(r,e),clearAll:()=>{t.clearAll()}}}export{s as u};
