@@ -1,0 +1,15 @@
+# Build artifacts
+build/
+.dart_tool/
+.idea/
+.gradle/
+android/
+ios/
+linux/
+macos/
+windows/
+.git/
+.github/
+*.iml
+*.md
+test/
