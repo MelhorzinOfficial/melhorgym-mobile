@@ -1,5 +1,5 @@
 # Stage 1: Build da aplicação Flutter Web
-FROM ghcr.io/cirruslabs/flutter:3.29.3 AS build
+FROM ghcr.io/cirruslabs/flutter:3.38.9 AS build
 
 WORKDIR /app
 

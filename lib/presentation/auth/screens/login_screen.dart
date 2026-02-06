@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:another_flushbar/flushbar.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_decorations.dart';
 import '../../../core/utils/validators.dart';
 import '../../navigation/route_names.dart';
 import '../bloc/auth_bloc.dart';
@@ -36,9 +38,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onLogin() {
     if (_formKey.currentState!.validate()) {
       context.read<LoginCubit>().login(
-            email: _emailController.text.trim(),
-            password: _passwordController.text,
-          );
+        email: _emailController.text.trim(),
+        password: _passwordController.text,
+      );
     }
   }
 
@@ -53,9 +55,11 @@ class _LoginScreenState extends State<LoginScreen> {
             Flushbar(
               message: state.errorMessage ?? 'Erro ao fazer login',
               duration: const Duration(seconds: 3),
-              backgroundColor: AppColors.error,
+              backgroundColor: AppColors.card,
+              messageColor: AppColors.error,
+              icon: const Icon(Icons.error_outline, color: AppColors.error),
               margin: const EdgeInsets.all(16),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
               flushbarPosition: FlushbarPosition.TOP,
             ).show(context);
           }
@@ -70,24 +74,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Icon(
-                      Icons.fitness_center,
-                      size: 64,
-                      color: AppColors.primary,
-                    ),
-                    const SizedBox(height: 16),
+                    Container(
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            gradient: AppColors.primaryGradient,
+                            borderRadius: BorderRadius.circular(24),
+                            boxShadow: primaryGlow(opacity: 0.3, blur: 24),
+                          ),
+                          child: const Icon(
+                            Icons.fitness_center_rounded,
+                            size: 36,
+                            color: Colors.black,
+                          ),
+                        )
+                        .animate()
+                        .fadeIn(duration: 600.ms)
+                        .scale(
+                          begin: const Offset(0.8, 0.8),
+                          end: const Offset(1, 1),
+                          duration: 600.ms,
+                          curve: Curves.easeOutBack,
+                        ),
+                    const SizedBox(height: 20),
                     Text(
                       'MelhorGym',
-                      style: AppTypography.heading1,
+                      style: AppTypography.heading1.copyWith(fontSize: 32),
                       textAlign: TextAlign.center,
-                    ),
+                    ).animate().fadeIn(duration: 500.ms, delay: 200.ms),
                     const SizedBox(height: 8),
                     Text(
                       'Faça login para continuar',
                       style: AppTypography.bodyMedium,
                       textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 40),
+                    ).animate().fadeIn(duration: 500.ms, delay: 300.ms),
+                    const SizedBox(height: 44),
                     AuthTextField(
                       controller: _emailController,
                       hintText: 'seu@email.com',

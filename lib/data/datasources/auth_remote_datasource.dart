@@ -33,7 +33,7 @@ class AuthRemoteDatasource {
       final response = await _dio.post(
         ApiConstants.register,
         data: <String, dynamic>{
-          if (name != null) 'name': name,
+          'name': ?name,
           'email': email,
           'password': password,
         },
