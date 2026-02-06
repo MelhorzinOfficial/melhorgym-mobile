@@ -5,12 +5,12 @@
   "author": "luizpbello <luizpbello2@gmail.com>",
   "private": true,
   "dependencies": {
-    "@capacitor/android": "^7.4.5",
-    "@capacitor/app": "^7.0.0",
-    "@capacitor/cli": "^7.0.0",
-    "@capacitor/core": "^7.0.0",
-    "@capacitor/device": "^7.0.3",
-    "@capacitor/ios": "^7.4.5",
-    "@capacitor/status-bar": "^7.0.4"
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/app": "^6.0.3",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1",
+    "@capacitor/device": "^6.0.3",
+    "@capacitor/ios": "^6.2.1",
+    "@capacitor/status-bar": "^6.0.3"
   }
 }
