@@ -20,94 +20,105 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
-      builder: (context, authState) {
-        if (authState is! AuthAuthenticated) {
-          return const LoadingIndicator();
-        }
+    return SafeArea(
+      bottom: false,
+      child: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, authState) {
+          if (authState is! AuthAuthenticated) {
+            return const LoadingIndicator();
+          }
 
-        final user = authState.user;
+          final user = authState.user;
 
-        return BlocBuilder<TrainingListCubit, TrainingListState>(
-          builder: (context, state) {
-            final plans = state.status == TrainingListStatus.loaded
-                ? state.plans
-                : <TrainingPlan>[];
-            final totalWorkouts = plans.fold<int>(
-              0,
-              (sum, p) => sum + p.dailyWorkouts.length,
-            );
-            final totalExercises = plans.fold<int>(
-              0,
-              (sum, p) =>
-                  sum +
-                  p.dailyWorkouts.fold<int>(
-                    0,
-                    (s, dw) => s + dw.exercises.length,
-                  ),
-            );
+          return BlocBuilder<TrainingListCubit, TrainingListState>(
+            builder: (context, state) {
+              final plans = state.status == TrainingListStatus.loaded
+                  ? state.plans
+                  : <TrainingPlan>[];
+              final totalWorkouts = plans.fold<int>(
+                0,
+                (sum, p) => sum + p.dailyWorkouts.length,
+              );
+              final totalExercises = plans.fold<int>(
+                0,
+                (sum, p) =>
+                    sum +
+                    p.dailyWorkouts.fold<int>(
+                      0,
+                      (s, dw) => s + dw.exercises.length,
+                    ),
+              );
 
-            return RefreshIndicator(
-              onRefresh: () => context.read<TrainingListCubit>().loadTrainings(),
-              color: AppColors.primary,
-              backgroundColor: AppColors.card,
-              child: ListView(
-                padding: const EdgeInsets.all(20),
-                children: [
-                  GreetingHeader(user: user),
-                  const SizedBox(height: 24),
-                  QuickStatsCard(
-                    totalPlans: plans.length,
-                    totalWorkouts: totalWorkouts,
-                    totalExercises: totalExercises,
-                  ),
-                  const SizedBox(height: 28),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Seus planos', style: AppTypography.heading3),
-                      if (plans.isNotEmpty)
-                        TextButton(
-                          onPressed: () => context.go(RouteNames.trainings),
-                          child: const Text('Ver todos'),
-                        ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  if (state.status == TrainingListStatus.loading)
-                    const Padding(
-                      padding: EdgeInsets.only(top: 40),
-                      child: LoadingIndicator(),
-                    )
-                  else if (state.status == TrainingListStatus.error)
-                    ErrorDisplay(
-                      message: state.errorMessage ?? 'Erro ao carregar planos',
-                      onRetry: () =>
-                          context.read<TrainingListCubit>().loadTrainings(),
-                    )
-                  else if (plans.isEmpty)
-                    _buildEmptyState(context)
-                  else
-                    ...plans.take(3).map((plan) => Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: TrainingPreviewCard(
-                            plan: plan,
-                            onTap: () async {
-                              final result = await context.push(
-                                RouteNames.trainingDetailPath(plan.id!),
-                              );
-                              if (result == true && context.mounted) {
-                                context.read<TrainingListCubit>().loadTrainings();
-                              }
-                            },
+              return RefreshIndicator(
+                onRefresh: () =>
+                    context.read<TrainingListCubit>().loadTrainings(),
+                color: AppColors.primary,
+                backgroundColor: AppColors.card,
+                child: ListView(
+                  padding: const EdgeInsets.all(20),
+                  children: [
+                    GreetingHeader(user: user),
+                    const SizedBox(height: 24),
+                    QuickStatsCard(
+                      totalPlans: plans.length,
+                      totalWorkouts: totalWorkouts,
+                      totalExercises: totalExercises,
+                    ),
+                    const SizedBox(height: 28),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Seus planos', style: AppTypography.heading3),
+                        if (plans.isNotEmpty)
+                          TextButton(
+                            onPressed: () => context.go(RouteNames.trainings),
+                            child: const Text('Ver todos'),
                           ),
-                        )),
-                ],
-              ),
-            );
-          },
-        );
-      },
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    if (state.status == TrainingListStatus.loading)
+                      const Padding(
+                        padding: EdgeInsets.only(top: 40),
+                        child: LoadingIndicator(),
+                      )
+                    else if (state.status == TrainingListStatus.error)
+                      ErrorDisplay(
+                        message:
+                            state.errorMessage ?? 'Erro ao carregar planos',
+                        onRetry: () =>
+                            context.read<TrainingListCubit>().loadTrainings(),
+                      )
+                    else if (plans.isEmpty)
+                      _buildEmptyState(context)
+                    else
+                      ...plans
+                          .take(3)
+                          .map(
+                            (plan) => Padding(
+                              padding: const EdgeInsets.only(bottom: 12),
+                              child: TrainingPreviewCard(
+                                plan: plan,
+                                onTap: () async {
+                                  final result = await context.push(
+                                    RouteNames.trainingDetailPath(plan.id!),
+                                  );
+                                  if (result == true && context.mounted) {
+                                    context
+                                        .read<TrainingListCubit>()
+                                        .loadTrainings();
+                                  }
+                                },
+                              ),
+                            ),
+                          ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 
@@ -123,10 +134,7 @@ class HomeScreen extends StatelessWidget {
               color: AppColors.textTertiary,
             ),
             const SizedBox(height: 16),
-            Text(
-              'Nenhum plano de treino',
-              style: AppTypography.bodyMedium,
-            ),
+            Text('Nenhum plano de treino', style: AppTypography.bodyMedium),
             const SizedBox(height: 8),
             Text(
               'Crie seu primeiro plano para começar!',
@@ -142,9 +150,7 @@ class HomeScreen extends StatelessWidget {
               },
               icon: const Icon(Icons.add),
               label: const Text('Criar plano'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(180, 48),
-              ),
+              style: ElevatedButton.styleFrom(minimumSize: const Size(180, 48)),
             ),
           ],
         ),
