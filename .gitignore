@@ -1,50 +1,45 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
 .DS_Store
-.thumbs.db
-node_modules
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
 
-# Quasar core related directories
-.quasar
-/dist
-/quasar.config.*.temporary.compiled*
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
 
-.env
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
 
-# Cordova related directories and files
-/src-cordova/node_modules
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
 
-# Capacitor related directories and files
-/src-capacitor/www
-/src-capacitor/node_modules
-/src-capacitor/android/app/release
-/src-capacitor/android/app/build
-/src-capacitor/android/app/*.apk
-/src-capacitor/android/app/*.aab
+# Symbolication related
+app.*.symbols
 
-# iOS build outputs (gerados automaticamente pelo Capacitor sync)
-/src-capacitor/ios/App/App/public
-/src-capacitor/ios/App/App/capacitor.config.json
-/src-capacitor/ios/App/App/config.xml
-/src-capacitor/ios/capacitor-cordova-ios-plugins
-/src-capacitor/ios/App/Pods
-/src-capacitor/ios/App/Podfile.lock
-/src-capacitor/ios/App/*.xcworkspace
-/src-capacitor/ios/App/DerivedData
-/src-capacitor/ios/App/build
+# Obfuscation related
+app.*.map.json
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
-# local .env files
-.env.local*
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release

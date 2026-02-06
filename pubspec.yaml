@@ -1,0 +1,31 @@
+name: melhorgym_mobile
+description: "MelhorGym - App de treino fitness"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_bloc: ^9.1.0
+  equatable: ^2.0.7
+  dio: ^5.7.0
+  shared_preferences: ^2.3.4
+  go_router: ^15.1.0
+  google_fonts: ^6.2.1
+  shimmer: ^3.0.0
+  another_flushbar: ^1.12.30
+  dartz: ^0.10.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
