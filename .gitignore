@@ -23,6 +23,17 @@ node_modules
 /src-capacitor/android/app/*.apk
 /src-capacitor/android/app/*.aab
 
+# iOS build outputs (gerados automaticamente pelo Capacitor sync)
+/src-capacitor/ios/App/App/public
+/src-capacitor/ios/App/App/capacitor.config.json
+/src-capacitor/ios/App/App/config.xml
+/src-capacitor/ios/capacitor-cordova-ios-plugins
+/src-capacitor/ios/App/Pods
+/src-capacitor/ios/App/Podfile.lock
+/src-capacitor/ios/App/*.xcworkspace
+/src-capacitor/ios/App/DerivedData
+/src-capacitor/ios/App/build
+
 # Log files
 npm-debug.log*
 yarn-debug.log*
