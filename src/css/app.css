@@ -44,14 +44,14 @@
 
 /* iOS - tem safe areas reais (notch, home indicator) */
 body.platform-ios {
-  --toast-top-offset: calc(env(safe-area-inset-top, 44px) + 16px);
-  --footer-bottom-padding: env(safe-area-inset-bottom, 34px);
+  --toast-top-offset: calc(env(safe-area-inset-top, 0px) + 16px);
+  --footer-bottom-padding: max(env(safe-area-inset-bottom, 0px), 8px);
 }
 
 /* Android - geralmente não tem safe area bottom significativa */
 body.platform-android {
-  --toast-top-offset: calc(env(safe-area-inset-top, 24px) + 16px);
-  --footer-bottom-padding: 0px; /* Android tem botões de navegação fora da app */
+  --toast-top-offset: calc(env(safe-area-inset-top, 0px) + 16px);
+  --footer-bottom-padding: 8px; /* Android tem botões de navegação fora da app */
 }
 
 /* Web - sem safe areas */
